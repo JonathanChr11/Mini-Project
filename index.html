@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3 TPM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+.landing-page {
+    background-image: url('images/landing.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-position-y: -50px;
+}
+.landing-page::after {
+    content:'';
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    min-height: 80vh;
+    padding: 3rem;
+}
+.landing-page > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.navbar {
+    background-color: rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    z-index: 999;
+}
+.navbar i {
+    padding-left: 40px;
+    padding-top: 12px;
+    font-size: 35px;
+}
+.navbar i span{
+    font-family: 'Damion', cursive;
+    padding-left: 20px;
+    font-size: 30px;
+}
+.navbar ul {
+    position: relative;
+    display: flex;
+    list-style: none;
+    padding-right: 40px;
+    padding-top: 5px;
+}
+.navbar ul li{
+    position: relative;
+}
+.navbar ul li:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.navbar ul li a{
+    position: relative;
+    line-height: 60px;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: 0.5s;
+    color: white;
+}
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: #00FFFF;
+}
+#check {
+    display: none;
+    }
+.navbar-bars {
+    display: none;
+}
+.title {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    z-index: 1;
+}
+.title .skypics {
+    font-family: 'Damion', cursive;
+    font-size: 64px;
+}
+.title .title-desc {
+    margin-top: -30px;
+    color: #D9D9D9;
+}
+.angle-down {
+    font-size: 60px;
+    margin-top: 80px;
+    z-index: 1;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.angle-down i {
+    color: white;
+}
+.about-us {
+    background-image: url('images/aboutus.jpg');
+    background-size: cover;
+    transform: rotate(180deg);
+    min-height: 100vh;
+    padding: 3rem;
+    /* background-position-y: -160px; */
+}
+.about-us::after {
+    content:'';
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    min-height: 80vh;
+    padding: 3rem;
+    z-index: -1;
+}
+.about-us > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transform: rotate(180deg);
+    margin-top: 100px;
+}
+.about-us .container h1 {
+    z-index: 1;
+    margin-bottom: -30px;
+}
+.camera-logo {
+    z-index: 1;
+    color: #D9D9D9;
+    font-size: 200px;
+}
+.about-us-desc {
+    z-index: 1;
+    max-width: 80%;
+    text-align: center;
+}
+.about-us-desc h1 {
+    font-size: 20px;
+}
+.our-work {
+    background-color: rgba(0, 0, 0, 0.35);
+    min-height: 100vh;
+    padding: 3rem;
+}
+.our-work > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.image-container {
+    display: flex;
+    justify-content: space-around;
+}
+.inner-image-container {
+    width: 30%;
+}
+.inner-image-container  > img {
+    width: 100%;
+}
+.inner-image {
+    width: 30%;
+}
+.image-pipih {
+    min-height: 150px;
+    height: 47%;
+    margin-bottom: 20px;
+    background-image: url('images/2.jpg');
+    background-size: cover;
+    background-position-x: -10px;
+}
+.image-pipih2 {
+    min-height: 150px;
+    height: 47%;
+    background-image: url('images/3.jpg');
+    background-size: cover;
+    transform: rotate(180deg);
+    background-position-x: -20px;
+}
+.contact-us {
+    background-image: url('images/contactus.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    padding: 3rem;
+}
+.contact-us > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.form-container {
+    background-color:#C4C4C4;
+    padding: 30px;
+    border-radius: 20px;
+}
+.form-control input {
+    border: 2px solid;
+}
+.form-control textarea {
+    border: 2px solid;
+}
+.form-control.success input {
+    border-color: #2ECC71;
+}
+.form-control.success textarea {
+    border-color: #2ECC71;
+}
+.form-control.error input {
+    border-color: #E74C3C;
+}
+.form-control.error textarea {
+    border-color: #E74C3C;
+}
+.form-control small {
+    visibility: hidden;
+}
+.form-control.error small {
+    color: #E74C3C;
+    visibility: visible;
+}
+.fname {
+    width: 50%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+.lname {
+    width: 49.2%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+.email {
+    width: 100%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+.phone {
+    width: 50%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+.gender {
+    width: 49%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.gender .female {
+    margin-left: 40px;
+}
+.messagess {
+    width: 100%;
+    resize: none;
+    overflow: auto;
+    font-size: 16px;
+    padding-left: 8px;
+}
+.submit {
+    border-radius: 20px;
+    padding: 5px 50px;
+}
+.submit:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+::placeholder {
+    font-size: 16px;
+    margin-left: 20px;
+}
+.footer {
+    background-color: black;
+    color: white;
+}
+.left {
+    padding-left: 150px;
+}
+.left-title i {
+    padding-top: 12px;
+    font-size: 40px;
+}
+.left-title i span{
+    font-family: 'Damion', cursive;
+    padding-left: 20px;
+    font-size: 40px;
+}
+.right  {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -70px;
+    padding-right: 230px;
+}
+.sosmed {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 185px;
+    font-size: 30px;
+}
+.sosmed a {
+    color: white;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+h2{
+    color: white;
+}
+@media only screen and (max-width :600px){
+    .landing-page {
+    background-position-y: 0;
+    }
+    .navbar i span {
+        visibility: hidden;
+    }
+    .navbar ul {
+        width: 100%;
+        height: 40vh;
+        position: absolute;
+        top: -400px;
+        text-align: center;
+        z-index: 2;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.15);
+        transition: all .5s;
+    }
+    .navbar ul li {
+        padding-left: 30px;
+    }
+    #check:checked ~ #menuList {
+        top: 49px;
+    }
+    .navbar-bars {
+        display: block;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+    .title {
+        margin-top: 200px;
+    }  
+    .about-us {
+        background-position-y: 0;
+    }
+    .about-us .container {
+        margin-top: 100px;
+    }
+    .image-container {
+        flex-direction: column;
+    }
+    .inner-image {
+        width: 100%;
+    }
+    .inner-image-container {
+        width: 100%;
+    }
+    .fname {
+    width: 50%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+    .lname {
+    width: 49.1%;
+    font-size: 16px;
+    padding-left: 8px;
+}
+    .left {
+    padding-left: 80px;
+}
+    .left-title i {
+    padding-top: 12px;
+    font-size: 35px;
+}
+    .left-title i span{
+    font-family: 'Damion', cursive;
+    padding-left: 20px;
+    font-size: 35px;
+}
+    .right  {
+    padding-right: 130px;
+}
+    .sosmed {
+    padding-right: 83px;
+    font-size: 30px;
+}
+}
+
+@media only screen and (max-width :545px){
+    .fname {
+    width: 49%;
+}
+    .lname {
+    width: 49%;
+    }
+    .phone {
+    width: 49%;
+}
+.gender {
+    font-size: 14px;
+}
+.gender .female {
+    margin-left: 1px;
+}
+.left {
+    padding-left: 20px;
+}
+.right  {
+    display: block;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+.sosmed {
+    display: block;
+    padding-left: 20px;
+    font-size: 30px;
+}
+}
+</style>
+<body>
+    <section class="landing-page">
+        <div class="container">
+            <div class="navbar">
+                <i class="fa fa-camera-retro" aria-hidden="true"><span>SkyPics</span></i>
+                <input type="checkbox" id="check">
+                <label for="check" class="navbar-bars">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </label>
+                    <ul id="menuList">
+                       <li><a class="active" href="index.html">Home</a></li>
+                       <li><a href="#about">About</a></li>
+                       <li><a href="#work">Work</a></li>
+                       <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+            </div>
+            <div class="title">
+                <h1 class="skypics">SkyPics</h1>
+                <h1 class="title-desc">The Sky's the limit</h1>
+            </div>
+                <div class="angle-down">
+                    <a href="#about"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                    </div>
+        </div>
+    </section>
+
+    <a name="about"></a>
+    <section class="about-us">
+        <div class="container">
+            <h1>About Us</h1>
+        <div class="camera-logo">
+            <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                 </div>
+                    <div class="about-us-desc">
+                    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil enim quasi quisquam assumenda? Eos, impedit modi. Explicabo earum suscipit, sint quia, reiciendis, quam voluptas hic nisi nesciunt impedit dolore natus?</h1>
+                </div>
+            </div>
+    </section>
+
+    <section class="our-work"><a name="work"></a>
+        <div class="container">
+            <h1>Our Work</h1>
+    <div class="image-container">
+        <img class="inner-image"src="images/1.jpg" alt="gambar">
+        <!-- alt dignakan untuk seperti search di google -->
+        <div class="inner-image-container">
+            <div class="image-pipih"></div>
+            <div class="image-pipih2"></div>
+        </div>
+        <img class="inner-image"src="images/4.jpg" alt="">
+        </div>
+    </div>
+ </section>
+
+ <section class="contact-us">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="form-container">
+            <form id="form" action="form">
+                <div class="form-control">
+                    <input type="text" name="fname" id="fname" class="fname" placeholder="First Name">
+                    <input type="text" name="lname" id="lname" class="lname" placeholder="Last Name">
+                    <small>Error message</small>
+                </div>
+
+                <div class="form-control">
+                    <input type="email" name="email" id="email" class="email" placeholder="Email">
+                    <small>Error message</small>
+                </div>
+
+                <div class="form-control">
+                    <input type="number" name="phone" id="phone" class="phone" placeholder="Phone Number">
+                    <div class="gender">
+                        <input type="radio" name="gender" id="male" class="male" required><span>Male</span>
+                        <input type="radio" name="gender" id="female" class="female" required><span>Female</span>
+                    </div>
+                    <small>Error message</small>
+                </div>
+                
+                <div class="form-control">
+                    <textarea type="text" name="messagess" id="messagess" class="messagess" cols="30" rows="10" placeholder="Message"></textarea>
+                    <small>Error message</small>
+                </div>
+
+                <center><button type="submit" class="submit">Submit</button></center>
+            </form>
+        </div>
+    </div>
+ </section>
+
+ <section class="footer">
+    <div class="container">
+        <div class="left">
+            <br>
+            <h5>Designed and Managed by:</h5>
+            <div class="left-title">
+                <i class="fa fa-camera-retro" aria-hidden="true"><span>SkyPics</span></i>
+            </div>
+        </div>
+        <div class="right">
+            <h5>Reach us at:</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        </div>
+        <div class="sosmed">
+            <a href="mailto:jonathansoesanto@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/jonathan-christian-286478220/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://api.whatsapp.com/send?phone=081615189999"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="https://www.instagram.com/jonathan.soesanto/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div class="center">
+            <h5>©2021 SkyPics, All Rights Reserved</h5>
+        </div>
+    </div>
+ </section>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="script.js"></script>
+
+    <script>
+        // javascript defer async
+        // int variable = 1;
+        // JSON
+        // Class Pet, object ikan
+        // var, let, const
+        // var itu semua tipe bisa, mau string,integer
+
+        var nama = "randi";
+        let pet = "ikan";
+        var nomorseri = 202021;
+        //typescript
+        nomorseri +1;
+        const angka = 1;
+        nama = "andee";
+        console.log(angka);
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        const addArrow = (a, b) => {
+            return a + b;
+        };
+
+        console.log(addArrow(1, 2));
+
+        const array = [1,2,3,4,5,6];
+
+        array.forEach((Number) => {
+            console.log(Number);
+        });
+
+        console.log(
+            array.map((Number) => {
+                return Number + 1;
+        }));
+
+        console.log(
+        array.filter((Number) => {
+        return Number > 3;
+        }));
+
+        console.log(
+            array.reduce((acc, Number) => {
+                return acc + Number;
+            }));
+
+    </script>
+</body>
+</html>
